@@ -1,7 +1,7 @@
 <arpg:game xmlns="common-tags" xmlns:arpg="amazing-role-playing-game">
     <arpg:players>
         <arpg:player name="Birutė" class="Mage">
-            <birthday date="2003-06-03"/>
+            <birthday>2003-06-03</birthday>
             <arpg:health>100</arpg:health>
             <arpg:damage>50</arpg:damage>
             <arpg:items>
@@ -18,7 +18,7 @@
             </arpg:items>
         </arpg:player>
         <arpg:player name="Mangirdas" class="Knight">
-            <birthday date="2003-07-10"/>
+            <birthday>2002-07-10</birthday>
             <arpg:health>250</arpg:health>
             <arpg:damage>30</arpg:damage>
             <arpg:items>
@@ -35,7 +35,7 @@
             </arpg:items>
         </arpg:player>
         <arpg:player name="Vytautas" class="Ranger">
-            <birthday date="2003-07-14"/>
+            <birthday>2002-07-14</birthday>
             <arpg:health>150</arpg:health>
             <arpg:damage>40</arpg:damage>
             <arpg:items>
