@@ -1,0 +1,69 @@
+<arpg:game xmlns="common-tags" xmlns:arpg="amazing-role-playing-game">
+    <arpg:players>
+        <arpg:player name="Birutė" class="Mage">
+            <birthday date="2003-06-03"/>
+            <arpg:health>100</arpg:health>
+            <arpg:damage>50</arpg:damage>
+            <arpg:items>
+                <arpg:item type="usable" amount="1">
+                    <name>Magic wand</name>
+                    <arpg:special>
+                        <name>Super mega magic blast</name>
+                        <arpg:chance>0.3</arpg:chance>
+                    </arpg:special>
+                </arpg:item>
+                <arpg:item type="consumable" amount="3">
+                    <name>health potion</name>
+                </arpg:item>
+            </arpg:items>
+        </arpg:player>
+        <arpg:player name="Mangirdas" class="Knight">
+            <birthday date="2003-07-10"/>
+            <arpg:health>250</arpg:health>
+            <arpg:damage>30</arpg:damage>
+            <arpg:items>
+                <arpg:item type="usable" amount="1">
+                    <name>Excalibur</name>
+                    <arpg:special>
+                        <name>Stronger than usual swing</name>
+                        <arpg:chance>0.4</arpg:chance>
+                    </arpg:special>
+                </arpg:item>
+                <arpg:item type="equipable" amount="1">
+                    <name>Chainmail</name>
+                </arpg:item>
+            </arpg:items>
+        </arpg:player>
+        <arpg:player name="Vytautas" class="Ranger">
+            <birthday date="2003-07-14"/>
+            <arpg:health>150</arpg:health>
+            <arpg:damage>40</arpg:damage>
+            <arpg:items>
+                <arpg:item type="usable" amount="1">
+                    <name>Lava bow</name>
+                    <arpg:special>
+                        <name>Volcano shot</name>
+                        <arpg:chance>0.2</arpg:chance>
+                    </arpg:special>
+                </arpg:item>
+                <arpg:item type="consumable" amount="64">
+                    <name>Arrow</name>
+                </arpg:item>
+            </arpg:items>
+        </arpg:player>
+    </arpg:players>
+    <arpg:enemies>
+        <arpg:enemy race="Goblin">
+            <arpg:health>50</arpg:health>
+            <arpg:damage>10</arpg:damage>
+        </arpg:enemy>
+        <arpg:enemy race="Ogre">
+            <arpg:health>350</arpg:health>
+            <arpg:damage>50</arpg:damage>
+        </arpg:enemy>
+        <arpg:enemy race="Dragon">
+            <arpg:health>1000</arpg:health>
+            <arpg:damage>100</arpg:damage>
+        </arpg:enemy>
+    </arpg:enemies>
+</arpg:game>

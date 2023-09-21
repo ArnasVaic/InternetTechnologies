@@ -1,0 +1,98 @@
+{
+	"game": {
+		"players": [
+			{
+				"name": "Birutė",
+				"class": "Mage",
+				"birthday": "2003-06-03",
+				"health": 100,
+				"damage": 50,
+				"items": {
+					"item": [
+						{
+							"amount": 1,
+							"type": "usable",
+							"name": "Magic wand",
+							"special": {
+								"name": "Super mega magic blast",
+								"chance": 0.3
+							}
+						},
+						{
+							"amount": 3,
+							"type": "consumable",
+							"name": "health potion"
+						}
+					]
+				}
+			},
+			{
+				"name": "Mangirdas",
+				"class": "Knight",
+				"birthday": "2002-07-10",
+				"health": 250,
+				"damage": 30,
+				"items": {
+					"item": [
+						{
+							"amount": 1,
+							"type": "usable",
+							"name": "Excalibur",
+							"special": {
+								"name": "Stronger than usual swing",
+								"chance": 0.4
+							}
+						},
+						{
+							"amount": 1,
+							"type": "equipable",
+							"name": "Chainmail"
+						}
+					]
+				}
+			},
+			{
+				"name": "Vytautas",
+				"class": "Ranger",
+				"birthday": "2002-07-14",
+				"health": 150,
+				"damage": 40,
+				"items": {
+					"item": [
+						{
+							"amount": 1,
+							"type": "usable",
+							"name": "Lava bow",
+							"special": {
+								"name": "Volcano shot",
+								"chance": 0.2
+							}
+						},
+						{
+							"amount": 64,
+							"type": "consumable",
+							"name": "Arrow"
+						}
+					]
+				}
+			}
+		],
+		"enemies": [
+			{
+				"race": "Goblin",
+				"health": 50,
+				"damage": 10
+			},
+			{
+				"race": "Ogre",
+				"health": 350,
+				"damage": 50
+			},
+			{
+				"race": "Dragon",
+				"health": 1000,
+				"damage": 100
+			}
+		]
+	}
+}
