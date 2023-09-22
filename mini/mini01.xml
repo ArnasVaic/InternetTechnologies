@@ -1,0 +1,15 @@
+<graph>
+    <nodes>
+        <node letter="A"/>
+        <node letter="B"/>
+        <node letter="C"/>
+        <node letter="D"/>
+    </nodes>
+    <edges>
+        <edge from="A" to="B"/>
+        <edge from="C" to="A"/>
+        <edge from="C" to="D"/>
+        <edge from="B" to="C"/>
+        <edge from="B" to="D"/>
+    </edges>
+</graph>
