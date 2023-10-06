@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Knygynas>
+    <autoriai>
+        <autorius id="a1">
+            <vardas>Jonas</vardas>
+            <pavarde>Jonaitis</pavarde>
+        </autorius>
+        <autorius id="a2">
+            <vardas>Petras</vardas>
+            <pavarde>Petraitis</pavarde>
+        </autorius>
+        <autorius id="a3">
+            <vardas>Antanas</vardas>
+            <pavarde>Antanaitis</pavarde>
+        </autorius>
+        <autorius id="a4">
+            <vardas>Martynas</vardas>
+            <pavarde>Marinkėnas</pavarde>
+        </autorius>
+    </autoriai>
+    <knygos>
+        <grupe rusis="grožinė">
+            <knyga isbn="1234">
+                <pavadinimas>Raudonkepuraitė</pavadinimas>
+                <autorius ref="a3"/>
+                <kaina>50.5</kaina>
+            </knyga>
+            <knyga isbn="3435">
+                <pavadinimas>Trys ožiukai</pavadinimas>
+                <autorius ref="a3"/>
+                <autorius ref="a4"/>
+                <kaina>75.00</kaina>
+            </knyga>
+        </grupe>
+        <grupe rusis="mokslinė">
+            <knyga isbn="2256">
+                <pavadinimas>Algebra</pavadinimas>
+                <autorius ref="a4"/>
+                <kaina>75</kaina>
+            </knyga>
+            <knyga isbn="1256">
+                <pavadinimas>Duomenų bazės</pavadinimas>
+                <autorius ref="a1"/>
+                <autorius ref="a2"/>
+                <kaina>50.50</kaina>
+            </knyga>
+        </grupe>
+    </knygos>
+</Knygynas>
