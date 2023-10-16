@@ -1,0 +1,78 @@
+<xs:schema  
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="amazing-role-playing-game"
+    xmlns="amazing-role-playing-game"
+    xmlns:ct="common-tags"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+    
+    <xs:import namespace="common-tags" schemaLocation="./common-tags.xsd"/>
+    
+    <xs:simpleType name="chance">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="health">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="damage">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="special">
+        <xs:all>
+            <xs:element name="name" type="ct:name"/>
+            <xs:element name="chance" type="chance"/>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:complexType name="item">
+        <xs:all>
+            <xs:element name="name" type="ct:name"/>
+            <xs:element name="special" type="special"/>
+        </xs:all>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="amount" type="xs:integer"/>
+    </xs:complexType>
+    
+    <xs:complexType name="items">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="item" type="item"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="player">
+        <xs:all>
+            <xs:element ref="ct:birthday"/>
+            <xs:element name="items" type="items"/>
+            <xs:element name="health" type="health"/>
+            <xs:element name="damage" type="damage"/>
+        </xs:all>
+        <xs:attribute name="name" type="ct:name"/>
+        <xs:attribute name="class" type="xs:string"/>
+    </xs:complexType>
+    
+    <xs:complexType name="players">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="player" type="player"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="game">
+        <xs:all>
+            <xs:element name="players" type="players"/>
+            <xs:element name="enemies"/>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:element name="game" type="game"/>
+
+</xs:schema>
