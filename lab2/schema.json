@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Graph visualization",
+    "type": "object",
+    "properties": {
+        "nodes": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/node" },
+            "anyOf": [
+                {
+                    "items": {
+                        "properties": {
+                            "start": { "type": "boolean" }
+                        },
+                        "required": ["start"]
+                    }
+                }
+            ]
+        },
+        "edges": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/edge" },
+            "allOf": [
+                { "required": [ "weigth" ] }
+            ]
+        }
+    },
+    "definitions": {
+        "node": {
+            "type": "object",
+            "properties": {
+                "id": { 
+                    "type": "string",
+                    "pattern": "[a-zA-Z]+"
+                },
+                "radius": {
+                    "type": "number",
+                    "exclusiveMinimum": true,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "color": { 
+                    "type": "string" ,
+                    "enum": [ "red", "green", "blue", "yellow", "cyan", "magenta" ]
+                }
+            },
+            "required": ["id", "color", "radius"]
+        },
+        "edge": {
+            "type": "object",
+            "properties": {
+                "from": { 
+                    "type": "string",
+                    "pattern": "[a-zA-Z]+" 
+                },
+                "to": { 
+                    "type": "string",
+                    "pattern": "[a-zA-Z]+" 
+                },
+                "width": {
+                    "type": "number",
+                    "exclusiveMinimum": true,
+                    "minimum": 0,
+                    "maximum": 0.5
+                },
+                "weight": { 
+                    "type": "number",
+                    "exclusiveMinimum": true,
+                    "minimum": 0
+                },
+                "color": {
+                    "type": "string",
+                    "pattern": "#[0-9a-fA-Z]{6}"
+                }
+            },
+            "required": ["from", "to", "weight"]
+        }
+    },
+    "additionalProperties": false,
+    "required": ["edges", "nodes"]
+}  
