@@ -1,16 +1,21 @@
-<xs:schema  
+<xs:schema 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="common-tags"
-    xmlns="common-tags"
-    elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
+    xmlns="http://common-tags"
+    targetNamespace="http://common-tags"
+    elementFormDefault="qualified">
+
+    <xs:simpleType name="recent-date">
+        <xs:restriction base="xs:date">
+            <xs:minInclusive value="1900-01-01"/>
+            <xs:maxInclusive value="2018-01-01"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:simpleType name="birthday">
-        <xs:restriction base="xs:date"/>
+        <xs:restriction base="recent-date"/>
     </xs:simpleType>
-     
-    <xs:simpleType name="name">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
+
+    <xs:element name="birthday" type="birthday" />
+    <xs:element name="name" type="xs:string" />
 
 </xs:schema>

@@ -1,4 +1,4 @@
-<arpg:game xmlns="common-tags" xmlns:arpg="amazing-role-playing-game">
+<arpg:game xmlns="http://common-tags" xmlns:arpg="http://amazing-role-playing-game">
     <arpg:players>
         <arpg:player name="Birutė" class="Mage">
             <birthday>2003-06-03</birthday>
@@ -16,6 +16,9 @@
             </arpg:items>
             <arpg:health>100</arpg:health>
             <arpg:damage>50</arpg:damage>
+            <arpg:login-method>
+                <arpg:gmail>birute@gmail.com</arpg:gmail>
+            </arpg:login-method>
         </arpg:player>
         <arpg:player name="Mangirdas" class="Knight">
             <birthday>2002-07-10</birthday>
@@ -33,6 +36,9 @@
             </arpg:items>
             <arpg:health>250</arpg:health>
             <arpg:damage>30</arpg:damage>
+            <arpg:login-method>
+                <arpg:twitter>@mangirdas</arpg:twitter>
+            </arpg:login-method>
         </arpg:player>
         <arpg:player name="Vytautas" class="Ranger">
             <birthday>2002-07-14</birthday>
@@ -50,6 +56,9 @@
             </arpg:items>
             <arpg:health>150</arpg:health>
             <arpg:damage>40</arpg:damage>
+            <arpg:login-method>
+                <arpg:facebook>Vytautas</arpg:facebook>
+            </arpg:login-method>
         </arpg:player>
     </arpg:players>
     <arpg:enemies>
@@ -59,11 +68,11 @@
         </arpg:enemy>
         <arpg:enemy race="Ogre">
             <arpg:health>350</arpg:health>
-            <arpg:damage>50</arpg:damage>
+            <arpg:damage>0</arpg:damage>
         </arpg:enemy>
-        <arpg:enemy race="Dragon">
+        <arpg:boss-enemy race="Dragon">
             <arpg:health>1000</arpg:health>
             <arpg:damage>100</arpg:damage>
-        </arpg:enemy>
+        </arpg:boss-enemy>
     </arpg:enemies>
 </arpg:game>

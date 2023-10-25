@@ -1,18 +1,38 @@
 <xs:schema  
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="amazing-role-playing-game"
-    xmlns="amazing-role-playing-game"
-    xmlns:ct="common-tags"
+    targetNamespace="http://amazing-role-playing-game"
+    xmlns="http://amazing-role-playing-game"
+    xmlns:ct="http://common-tags"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     
-    <xs:import namespace="common-tags" schemaLocation="./common-tags.xsd"/>
-    
-    <xs:simpleType name="chance">
+    <xs:import namespace="http://common-tags" schemaLocation="./common-tags.xsd" />
+
+    <xs:complexType name="actor">
+        <xs:attribute name="class" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="unit-interval">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"/>
             <xs:maxInclusive value="1"/>
         </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="positive-int">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="natural-int">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="chance">
+        <xs:restriction base="unit-interval"/>
     </xs:simpleType>
     
     <xs:simpleType name="health">
@@ -21,26 +41,24 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="damage">
-        <xs:restriction base="xs:integer">
-            <xs:minInclusive value="1"/>
-        </xs:restriction>
+    <xs:simpleType name="damageT">
+        <xs:restriction base="natural-int"/>
     </xs:simpleType>
     
     <xs:complexType name="special">
         <xs:all>
-            <xs:element name="name" type="ct:name"/>
+            <xs:element ref="ct:name"/>
             <xs:element name="chance" type="chance"/>
         </xs:all>
     </xs:complexType>
     
     <xs:complexType name="item">
         <xs:all>
-            <xs:element name="name" type="ct:name"/>
-            <xs:element name="special" type="special"/>
+            <xs:element ref="ct:name" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="special" type="special" minOccurs="0" maxOccurs="1"/>
         </xs:all>
-        <xs:attribute name="type" type="xs:string"/>
-        <xs:attribute name="amount" type="xs:integer"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="amount" type="xs:integer" use="required"/>
     </xs:complexType>
     
     <xs:complexType name="items">
@@ -49,30 +67,98 @@
         </xs:sequence>
     </xs:complexType>
     
-    <xs:complexType name="player">
-        <xs:all>
-            <xs:element ref="ct:birthday"/>
-            <xs:element name="items" type="items"/>
-            <xs:element name="health" type="health"/>
-            <xs:element name="damage" type="damage"/>
-        </xs:all>
-        <xs:attribute name="name" type="ct:name"/>
-        <xs:attribute name="class" type="xs:string"/>
+    <xs:simpleType name="twitter">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="@[a-zA-Z0-9_]{0,15}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="gmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9_]+@gmail.com"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="facebook">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9_]{0,15}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="login-method">
+        <xs:choice>
+            <xs:element name="twitter" type="twitter"/>
+            <xs:element name="gmail" type="gmail"/>
+            <xs:element name="facebook" type="facebook"/>
+        </xs:choice>
     </xs:complexType>
-    
+
+    <xs:complexType name="player">
+        <xs:complexContent>
+            <xs:extension base="actor">
+            <xs:all>
+                <xs:element ref="ct:birthday"/>
+                <xs:element name="items" type="items"/>
+                <xs:element name="health" type="health"/>
+                <xs:element name="damage" type="damageT"/>
+                <xs:element name="login-method" type="login-method"/>
+            </xs:all>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+   
     <xs:complexType name="players">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="player" type="player"/>
+            <xs:element maxOccurs="unbounded" name="player" type="player">
+                <xs:key name="playerKey">
+                    <xs:selector xpath="player/name"/>
+                    <xs:field xpath="@name"/>
+                </xs:key>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
     
     <xs:complexType name="game">
         <xs:all>
             <xs:element name="players" type="players"/>
-            <xs:element name="enemies"/>
+            <xs:element name="enemies" type="enemies"/>
         </xs:all>
     </xs:complexType>
     
+    <xs:complexType name="enemies">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="enemy" type="enemy"/>
+            <xs:element maxOccurs="unbounded" name="boss-enemy" type="boss-enemy"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="enemy">
+        <xs:all>
+            <xs:element name="health" type="health"/>
+            <xs:element name="damage" type="damageT"/>
+        </xs:all>
+        <xs:attribute name="race" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="boss-enemy">
+        <xs:complexContent>
+            <xs:restriction base="enemy">
+                <xs:all>
+                    <xs:element name="health" type="health"/>
+                    <xs:element name="damage">
+                        <xs:simpleType>
+                            <xs:restriction base="damageT">
+                                <xs:minInclusive value="100"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:all>
+                <xs:attribute name="race" type="xs:string" use="required"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+
     <xs:element name="game" type="game"/>
 
 </xs:schema>
