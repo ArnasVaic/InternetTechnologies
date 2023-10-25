@@ -52,10 +52,18 @@
         </xs:all>
     </xs:complexType>
     
+    <xs:complexType name="description" mixed="true">
+        <xs:sequence>
+            <xs:element name="heading" type="xs:string"/>
+            <xs:element name="strong" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="item">
         <xs:all>
             <xs:element ref="ct:name" minOccurs="1" maxOccurs="1"/>
             <xs:element name="special" type="special" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="description" type="description" minOccurs="1" maxOccurs="1"/>
         </xs:all>
         <xs:attribute name="type" type="xs:string" use="required"/>
         <xs:attribute name="amount" type="xs:integer" use="required"/>
@@ -110,12 +118,7 @@
    
     <xs:complexType name="players">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="player" type="player">
-                <xs:key name="playerKey">
-                    <xs:selector xpath="player/name"/>
-                    <xs:field xpath="@name"/>
-                </xs:key>
-            </xs:element>
+            <xs:element maxOccurs="unbounded" name="player" type="player"/>
         </xs:sequence>
     </xs:complexType>
     
@@ -139,6 +142,7 @@
             <xs:element name="damage" type="damageT"/>
         </xs:all>
         <xs:attribute name="race" type="xs:string" use="required"/>
+        <xs:attribute name="target" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="boss-enemy">
@@ -159,6 +163,15 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="game" type="game"/>
+    <xs:element name="game" type="game">
+        <xs:key name="playerKey">
+            <xs:selector xpath="players/*"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+        <xs:keyref name="playerKeyRef" refer="playerKey">
+            <xs:selector xpath="enemies/*"/>
+            <xs:field xpath="@target"/>
+        </xs:keyref>
+    </xs:element>
 
 </xs:schema>

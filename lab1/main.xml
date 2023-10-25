@@ -9,9 +9,19 @@
                         <name>Super mega magic blast</name>
                         <arpg:chance>0.3</arpg:chance>
                     </arpg:special>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
                 <arpg:item type="consumable" amount="3">
                     <name>health potion</name>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
             </arpg:items>
             <arpg:health>100</arpg:health>
@@ -26,12 +36,22 @@
                 <arpg:item type="usable" amount="1">
                     <name>Excalibur</name>
                     <arpg:special>
-                        <name>Stronger than usual swing</name>
+                        <name>arpg:stronger than usual swing</name>
                         <arpg:chance>0.4</arpg:chance>
                     </arpg:special>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
                 <arpg:item type="equipable" amount="1">
                     <name>Chainmail</name>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
             </arpg:items>
             <arpg:health>250</arpg:health>
@@ -49,9 +69,19 @@
                         <name>Volcano shot</name>
                         <arpg:chance>0.2</arpg:chance>
                     </arpg:special>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
                 <arpg:item type="consumable" amount="64">
                     <name>Arrow</name>
+                    <arpg:description>
+                        <arpg:heading>Excalibur</arpg:heading>
+
+                        This is a <arpg:strong>very</arpg:strong> powerful sword.
+                    </arpg:description>
                 </arpg:item>
             </arpg:items>
             <arpg:health>150</arpg:health>
@@ -62,15 +92,15 @@
         </arpg:player>
     </arpg:players>
     <arpg:enemies>
-        <arpg:enemy race="Goblin">
+        <arpg:enemy race="Goblin" target="Birutė">
             <arpg:health>50</arpg:health>
             <arpg:damage>10</arpg:damage>
         </arpg:enemy>
-        <arpg:enemy race="Ogre">
+        <arpg:enemy race="Ogre" target="Mangirdas">
             <arpg:health>350</arpg:health>
             <arpg:damage>0</arpg:damage>
         </arpg:enemy>
-        <arpg:boss-enemy race="Dragon">
+        <arpg:boss-enemy race="Dragon" target="Vytautas">
             <arpg:health>1000</arpg:health>
             <arpg:damage>100</arpg:damage>
         </arpg:boss-enemy>
