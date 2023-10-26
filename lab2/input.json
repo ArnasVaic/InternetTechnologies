@@ -2,34 +2,36 @@
     "nodes": 
     [
         {
-            "start": true,
-            "id": "node1",
+            "id": "node1x",
             "radius": 0.5,
             "color": "red"
         },
         {
-            "id": "node2",
+            "id": "node2xy",
             "radius": 0.25,
-            "color": "blue"
+            "color": "#1F1FFF"
         }
     ],
     "edges":
     [
         {
-            "from": "node1",
-            "to": "node2",
+            "from": "node1x",
+            "to": "node2xy",
+            "color": "#ab11cc",
             "weight": 0.25,
             "width": 0.1
         },
         {
-            "from": "node2",
-            "to": "node1",
+            "from": "node2xy",
+            "to": "node1x",
+            "color": "cyan",
             "weight": 0.5,
             "width": 0.2
         },
         {
             "from": "node1",
             "to": "node1",
+            "color": "magenta",
             "weight": 0.5,
             "width": 0.2
         }

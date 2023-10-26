@@ -5,43 +5,71 @@
     "properties": {
         "nodes": {
             "type": "array",
-            "items": { "$ref": "#/definitions/node" },
-            "anyOf": [
-                {
-                    "items": {
-                        "properties": {
-                            "start": { "type": "boolean" }
-                        },
-                        "required": ["start"]
-                    }
-                }
-            ]
+            "items": { "$ref": "#/definitions/node" }
         },
         "edges": {
             "type": "array",
-            "items": { "$ref": "#/definitions/edge" },
-            "allOf": [
-                { "required": [ "weigth" ] }
-            ]
+            "items": { "$ref": "#/definitions/edge" }
         }
     },
     "definitions": {
+        "positive": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMinimum": true
+        },
+        "max1": {
+            "type": "number",
+            "maximum": 1
+        },
+        "hex_color": {
+            "type": "string",
+            "pattern": "#[0-9a-fA-Z]{6}"
+        },
+        "string_color": {
+            "type": "string" ,
+            "enum": [ "red", "green", "blue", "yellow", "cyan", "magenta" ]
+        },
         "node": {
             "type": "object",
             "properties": {
                 "id": { 
                     "type": "string",
-                    "pattern": "[a-zA-Z]+"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "pattern": ".*x.*"
+                        },
+                        {
+                            "type": "string",
+                            "pattern": ".*y.*"
+                        },
+                        {
+                            "type": "string",
+                            "pattern": ".*z.*"
+                        }
+                    ]
                 },
                 "radius": {
                     "type": "number",
-                    "exclusiveMinimum": true,
-                    "minimum": 0,
-                    "maximum": 1
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/positive"
+                        },
+                        {
+                            "$ref": "#/definitions/max1"
+                        }
+                    ]
                 },
                 "color": { 
-                    "type": "string" ,
-                    "enum": [ "red", "green", "blue", "yellow", "cyan", "magenta" ]
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/hex_color"
+                        },
+                        {
+                            "$ref": "#/definitions/string_color"
+                        }
+                    ]
                 }
             },
             "required": ["id", "color", "radius"]
@@ -69,11 +97,17 @@
                     "minimum": 0
                 },
                 "color": {
-                    "type": "string",
-                    "pattern": "#[0-9a-fA-Z]{6}"
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/hex_color"
+                        },
+                        {
+                            "$ref": "#/definitions/string_color"
+                        }
+                    ]
                 }
             },
-            "required": ["from", "to", "weight"]
+            "required": ["from", "to", "weight", "width", "color"]
         }
     },
     "additionalProperties": false,
