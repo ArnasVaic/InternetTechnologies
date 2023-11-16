@@ -5,7 +5,9 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1 id="some-id">Kauliukai</h1>
+        <div class="titlebar">
+            <h1 id="some-id">Kauliukai</h1>
+        </div>
         <div class="container"></div>
             <div class="column">
                 Apie kauliukus daugiau sužinoti galite <a href="https://en.wikipedia.org/wiki/Dice">čia<a/>
@@ -15,7 +17,6 @@
             <div class="column">
 
                 <h2>Kauliukų tipai</h2>
-
                 <ul>
                     <li>D4</li>
                     <li>D6</li>
@@ -24,9 +25,7 @@
                     <li>D12</li>
                     <li>D20</li>
                 </ul>
-
                 Kauliukų tipai išrikiuoti pagal tai kiek jie man patinka
-
                 <ol>
                     <li class="favorite">D6 (kitų nesu matęs tai nepatinka) </li>
                     <li>D4</li>
@@ -40,168 +39,33 @@
             <div class="column">
                 <h2> Kauliukų tikimybių lentelė</h2>
                 <table>
-                    <tr> 
-                        <th colspan="7">Kauliukų ir skaičių tikimybės</th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th>D4</th>
-                        <th>D6</th>
-                        <th>D8</th>
-                        <th>D10</th>
-                        <th>D12</th>
-                        <th>D20</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0.25</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>0.25</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>0.25</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>0.25</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td rowspan="16">0</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>6</td>
-                        <td>0.1(6)</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>7</td>
-                        <td rowspan="14">0</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>8</td>
-                        <td>0.125</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>9</td>
-                        <td rowspan="12">0</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>10</td>
-                        <td>0.1</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>11</td>
-                        <td rowspan="10">0</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-                
-                    <tr>
-                        <td>12</td>
-                        <td>0.08(3)</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>13</td>
-                        <td rowspan="8">0</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>14</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>15</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>16</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>17</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>18</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>19</td>
-                        <td>0.05</td>
-                    </tr>
-
-                    <tr>
-                        <td>20</td>
-                        <td>0.05</td>
-                    </tr>
-
+                    <tr> <th colspan="7">Kauliukų ir skaičių tikimybės</th> </tr>
+                    <tr><th></th><th>D4</th><th>D6</th><th>D8</th><th>D10</th><th>D12</th><th>D20</th></tr>
+                    <tr><td>1</td><td>0.25</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>2</td><td>0.25</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>3</td><td>0.25</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>4</td><td>0.25</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>5</td><td rowspan="16">0</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>6</td><td>0.1(6)</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>7</td><td rowspan="14">0</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>8</td><td>0.125</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>9</td><td rowspan="12">0</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>10</td><td>0.1</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>11</td><td rowspan="10">0</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>12</td><td>0.08(3)</td><td>0.05</td></tr>
+                    <tr><td>13</td><td rowspan="8">0</td><td>0.05</td></tr>
+                    <tr><td>14</td><td>0.05</td></tr>
+                    <tr><td>15</td><td>0.05</td></tr>
+                    <tr><td>16</td><td>0.05</td></tr>
+                    <tr><td>17</td><td>0.05</td></tr>
+                    <tr><td>18</td><td>0.05</td></tr>
+                    <tr><td>19</td><td>0.05</td></tr>
+                    <tr><td>20</td><td>0.05</td></tr>
                 </table>
             </div>
-            <div class="column">
+            <div class="column" id="extra">
+                <h2>Susisiekime!</h2>
                 <form method="post">
-                    <h2>Susisiekime!</h2>
                     <p>Palikite atsiliepimą apie jūsų mėgstamiausią kauliuką</p>
                     <label for="lnumber">Mėgstamiausio kauliuko skaičius</label>
                     <input type="number" name="lnumber" required>

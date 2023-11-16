@@ -1,0 +1,4 @@
+/Knygynas/autoriai/autorius[
+    @id = /Knygynas/knygos/grupe/knyga[
+        kaina = min(/Knygynas/knygos/grupe/knyga/kaina)
+    ]/autorius/@ref]/vardas

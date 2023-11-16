@@ -1,6 +1,9 @@
 <arpg:game xmlns="http://common-tags" xmlns:arpg="http://amazing-role-playing-game">
     <arpg:players>
         <arpg:player name="Birutė" class="Mage">
+            <arpg:abc>1</arpg:abc>
+            <arpg:foo>123</arpg:foo>
+            <arpg:bar>abc</arpg:bar>
             <birthday>2003-06-03</birthday>
             <arpg:items>
                 <arpg:item type="usable" amount="1">
@@ -31,6 +34,9 @@
             </arpg:login-method>
         </arpg:player>
         <arpg:player name="Mangirdas" class="Knight">
+            <arpg:abc>12 24 33</arpg:abc>
+            <arpg:foo>123</arpg:foo>
+            <arpg:bar>abc</arpg:bar>
             <birthday>2002-07-10</birthday>
             <arpg:items>
                 <arpg:item type="usable" amount="1">
@@ -61,6 +67,9 @@
             </arpg:login-method>
         </arpg:player>
         <arpg:player name="Vytautas" class="Ranger">
+            <arpg:abc>123</arpg:abc>
+            <arpg:foo>123</arpg:foo>
+            <arpg:bar>abc</arpg:bar>
             <birthday>2002-07-14</birthday>
             <arpg:items>
                 <arpg:item type="usable" amount="1">

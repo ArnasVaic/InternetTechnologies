@@ -24,7 +24,7 @@
         },
         "hex_color": {
             "type": "string",
-            "pattern": "#[0-9a-fA-Z]{6}"
+            "pattern": "#[0-9a-fA-F]{6}"
         },
         "string_color": {
             "type": "string" ,

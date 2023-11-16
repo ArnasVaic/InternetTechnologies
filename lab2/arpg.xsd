@@ -100,11 +100,32 @@
             <xs:element name="facebook" type="facebook"/>
         </xs:choice>
     </xs:complexType>
+    
+    <xs:complexType name="bar">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="foo" >
+        <xs:simpleContent>
+            <xs:restriction base="bar">
+                <xs:pattern value="\d+"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="abc">
+        <xs:list itemType="xs:int"/>
+    </xs:simpleType>
 
     <xs:complexType name="player">
         <xs:complexContent>
             <xs:extension base="actor">
             <xs:all>
+                <xs:element name="abc" type="abc"/>
+                <xs:element name="foo" type="foo"/>
+                <xs:element name="bar" type="bar"/>
                 <xs:element ref="ct:birthday"/>
                 <xs:element name="items" type="items"/>
                 <xs:element name="health" type="health"/>

@@ -10,11 +10,13 @@
             <xs:maxInclusive value="2018-01-01"/>
         </xs:restriction>
     </xs:simpleType>
-
-    <xs:simpleType name="birthday">
-        <xs:restriction base="recent-date"/>
-    </xs:simpleType>
-
+    
+    <xs:complexType name="birthday">
+        <xs:simpleContent>
+            <xs:extension base="recent-date"/>
+        </xs:simpleContent>        
+    </xs:complexType>
+    
     <xs:element name="birthday" type="birthday" />
     <xs:element name="name" type="xs:string" />
 

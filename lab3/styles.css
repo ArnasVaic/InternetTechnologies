@@ -1,41 +1,45 @@
-table, th, td {
-    border: 1px solid;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #333;
-    background-color: lightslategrey;
-}
-
-div {
-    background-color: inherit
-}
-
-div tr {
-    background-color: aquamarine;
-}
-
-div > h2 {
-    color: red;
-}
+h2 {
+    color: blue
+} 
 
 .container {
     display: flex;
-    font-size: 20px;
-    color: red;
+    width: 100%;
+}
+
+#extra {
+    color: red
+}
+
+#extra > h2 {
+    color: inherit
 }
 
 [class ^= column] {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
     border: 1px solid #ddd;
-    background-color: coral;
+}
+
+table th, table td {
+    border: 1px solid;
+}
+
+.titlebar {
+    text-align: center;
+}
+
+h1 {
+    color: blue !important;
 }
 
 #some-id {
-    text-align: center;
-    color:crimson
+    color: red;
+}
+
+@media screen and (min-width: 900px) {
+    [class ^= column] {
+        width: 24%;
+        height:100%;
+        border: 1px solid #ddd;
+        float: left;
+    }
 }
